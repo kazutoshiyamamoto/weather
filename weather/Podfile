@@ -7,5 +7,6 @@ target 'weather' do
 
   # Pods for weather
     pod 'Alamofire', '~> 4.7'
+    pod 'SwiftyJSON'
 
 end

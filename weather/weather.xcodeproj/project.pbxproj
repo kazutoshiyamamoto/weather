@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E7E2B8D91E960AA2430B0E02 /* Pods_weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7A1ADA02516A0872477A5D /* Pods_weather.framework */; };
+		FD7F00DD2077763D00A0CCFA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD7F00DC2077763D00A0CCFA /* Alamofire.framework */; };
 		FD9ADE9B2077486F004A688C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9ADE9A2077486F004A688C /* AppDelegate.swift */; };
 		FD9ADE9D2077486F004A688C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9ADE9C2077486F004A688C /* ViewController.swift */; };
 		FD9ADEA02077486F004A688C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9ADE9E2077486F004A688C /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 		27B85C27174EECF2452440D3 /* Pods-weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weather.release.xcconfig"; path = "Pods/Target Support Files/Pods-weather/Pods-weather.release.xcconfig"; sourceTree = "<group>"; };
 		9A7A1ADA02516A0872477A5D /* Pods_weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB651CF1A3BC79ED8DB27D4 /* Pods-weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weather/Pods-weather.debug.xcconfig"; sourceTree = "<group>"; };
+		FD7F00DC2077763D00A0CCFA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9ADE972077486F004A688C /* weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9ADE9A2077486F004A688C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD9ADE9C2077486F004A688C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD7F00DD2077763D00A0CCFA /* Alamofire.framework in Frameworks */,
 				E7E2B8D91E960AA2430B0E02 /* Pods_weather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,6 +46,7 @@
 		014CE40FF20F4405C29C6C8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD7F00DC2077763D00A0CCFA /* Alamofire.framework */,
 				9A7A1ADA02516A0872477A5D /* Pods_weather.framework */,
 			);
 			name = Frameworks;
@@ -183,10 +187,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-weather/Pods-weather-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
