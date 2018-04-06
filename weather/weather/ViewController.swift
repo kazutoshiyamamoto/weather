@@ -26,20 +26,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     
     @IBAction func weatherSearch(_ sender: Any) {
-        // 天気情報APIにアクセスする
-        Alamofire.request("http://weather.livedoor.com/forecast/webservice/json/v1?city=130010").responseJSON {response in
-            print("Request: \(String(describing: response.request))")
-            print("Response: \(String(describing: response.response))")
-            print("Result: \(String(describing: response.result))")
-            
-            if let json = response.result.value {
-                print("JSON: \(json)")  // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)")  // original server data as UTF8 String
+        getWeather ()
+        
+        
+        
+        //        // 天気情報APIにアクセスする
+        //        Alamofire.request("http://weather.livedoor.com/forecast/webservice/json/v1?city=130010").responseJSON {response in
+        //            print("Request: \(String(describing: response.request))")
+        //            print("Response: \(String(describing: response.response))")
+        //            print("Result: \(String(describing: response.result))")
+        //
+        //            if let json = response.result.value {
+        //                print("JSON: \(json)")  // serialized json response
+        //            }
+        //
+        //            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+        //                print("Data: \(utf8Text)")  // original server data as UTF8 String
+        //            }
+        //        }
+    }
+    
+    
+    
+    func getWeather () {
+        Alamofire.request("http://weather.livedoor.com/forecast/webservice/json/v1?city=130010").validate().responseJSON {response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let name = json["title"].stringValue
+                print(name)
+                self.weatherLabel.text = name
+            case .failure(let error):
+                print(error)
             }
         }
     }
 }
+
 
