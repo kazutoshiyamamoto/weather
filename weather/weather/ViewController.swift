@@ -53,7 +53,7 @@ class ViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                let name = json["title"].stringValue
+                let name = (json["description"]["text"]).stringValue
                 print(name)
                 self.weatherLabel.text = name
             case .failure(let error):
