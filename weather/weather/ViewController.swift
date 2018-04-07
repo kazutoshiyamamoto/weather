@@ -24,38 +24,31 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var iconView: UIImageView!
     
+    // 天気を調べる
     @IBAction func weatherSearch(_ sender: Any) {
         getWeather ()
-        
-        
-        
-        //        // 天気情報APIにアクセスする
-        //        Alamofire.request("http://weather.livedoor.com/forecast/webservice/json/v1?city=130010").responseJSON {response in
-        //            print("Request: \(String(describing: response.request))")
-        //            print("Response: \(String(describing: response.response))")
-        //            print("Result: \(String(describing: response.result))")
-        //
-        //            if let json = response.result.value {
-        //                print("JSON: \(json)")  // serialized json response
-        //            }
-        //
-        //            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-        //                print("Data: \(utf8Text)")  // original server data as UTF8 String
-        //            }
-        //        }
     }
     
     
-    
+    // 天気情報APIにアクセスする
     func getWeather () {
-        Alamofire.request("http://weather.livedoor.com/forecast/webservice/json/v1?city=130010").validate().responseJSON {response in
+        Alamofire.request("http://api.openweathermap.org/data/2.5/weather?id=1850147&units=metric&appid=ecea42c72b75c53caefaa93002224dd6").validate().responseJSON {response in
             switch response.result {
             case .success(let value):
+                // 現在の天気を表示
                 let json = JSON(value)
-                let name = (json["description"]["text"]).stringValue
-                print(name)
+                let name = json["weather"][0]["main"].stringValue
                 self.weatherLabel.text = name
+                
+                // 天気アイコンを表示
+                let icon = json["weather"][0]["icon"]
+                let url = NSURL(string:"http://openweathermap.org/img/w/\(icon).png")!
+                let imageData = try? Data(contentsOf: url as URL)
+                let image = UIImage(data:imageData!)
+                self.iconView.image = image
+
             case .failure(let error):
                 print(error)
             }

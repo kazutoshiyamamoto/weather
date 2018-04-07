@@ -24,7 +24,12 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>weather.livedoor.com</key>
+			<key>api.openweathermap.org</key>
+			<dict>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>openweathermap.org</key>
 			<dict>
 				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
